@@ -1,0 +1,12 @@
+body {
+  background-color: aliceblue;
+  font-family: "Courier New", Courier, monospace;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  height: 100vh;
+}

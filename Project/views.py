@@ -5,8 +5,9 @@ from django.http import HttpRequest, HttpResponse
 
 
 
+
 def landing_page_view(request):
-    return render(request, "Project/home.html")
+    return render(request, "project/home.html")
 
 def about_view(request):
-    return render(request, "Project/about.html")
+    return render(request, "project/about.html")

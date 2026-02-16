@@ -15,4 +15,13 @@
 />
 <p>This is the home page for "A Book Site"!</p>
 
+<section>
+  {%for book in books%}
+  <h2><a href="{{book.get_absolute_url}}">{{book.title}}</a></h2>
+  <p>{{book.author}}</p>
+  <p>Pages: {{book.page_num}}</p>
+  <p>DDs: {{book.dds}}</p>
+  {%endfor%}
+</section>
+
 {% endblock %}

@@ -52,3 +52,9 @@ class BookMetadata(models.Model):
 
     def __str__(self):
         return f"Metadata for {self.book.title}"
+
+class Feedback(models.Model):
+    username = models.CharField()
+    email = models.EmailField()
+    subject = models.CharField()
+    message = models.TextField()

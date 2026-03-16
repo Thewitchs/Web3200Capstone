@@ -1,11 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from .models import Book
+from .form import ReviewForm
 
 
 # Create your views here.
-
-
 
 
 def landing_page_view(request):
@@ -26,3 +25,14 @@ def book_detail(request, slug):
     return render(request, 'project/detail.html', {
         'book': book
     })
+
+def feedback(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect('/submission')
+    else:
+        form = ReviewForm()
+    

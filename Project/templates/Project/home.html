@@ -1,4 +1,4 @@
-{%extends "base.html"%} {% block content %}
+{%extends "base.html"%} {% load static %} {% block content %}
 <header>
   <nav>
     <ul>
@@ -10,7 +10,7 @@
 
 <h1>A Book Site</h1>
 <img
-  src="{% static 'project/images/hero-books.jpg' %}"
+  src="{% static 'project/image/hero-books.jpg' %}"
   alt="A line of books with their spines facing to the sky"
 />
 <p>This is the home page for "A Book Site"!</p>

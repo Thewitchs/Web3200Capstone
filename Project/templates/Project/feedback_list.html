@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>All Reviews</h1>
+
+    {% for feedback in feedbacks %}
+    <div>
+      <h3>
+        <a href="{% url 'feedback_detail' feedback.id %}">
+          {{ feedback.subject }}
+        </a>
+      </h3>
+
+      <p>{{ feedback.username }}</p>
+
+      {% if feedback.image %}
+      <img src="{{ feedback.image.url }}" width="200" />
+      {% endif %}
+    </div>
+    {% endfor %}
+  </body>
+</html>

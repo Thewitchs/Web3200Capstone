@@ -26,9 +26,9 @@ class Book(models.Model):
     author = models.CharField(max_length=3000)
     pages = models.IntegerField()
     dds = models.FloatField(null=True)
-    slug = models.SlugField(default='', null=False, db_index=True )
+    slug = models.SlugField(default='',null=False, db_index=True )
 
-    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, )
 
     genre = models.ManyToManyField(Genre)
 
@@ -54,7 +54,8 @@ class BookMetadata(models.Model):
         return f"Metadata for {self.book.title}"
 
 class Feedback(models.Model):
-    username = models.CharField()
+    username = models.CharField(max_length=50)
     email = models.EmailField()
-    subject = models.CharField()
+    subject = models.CharField(max_length=50)
     message = models.TextField()
+    image = models.ImageField(upload_to='feedback_images/', blank=True, null=True)

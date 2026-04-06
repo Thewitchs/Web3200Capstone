@@ -1,21 +1,14 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>App Review Form</h1>
+{%extends "base.html"%} {% block content %}
+<h1>Leave A Review</h1>
 
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %} {% for field in form %}
-      <div class="form-control {% if field.errors %}errors{% endif %}">
-        {{ field.label_tag }} {{ field }} {{ field.errors }}
-      </div>
-      {% endfor %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {% for field in form %}
+  <div class="form-control {% if field.errors %}errors{% endif %}">
+    {{ field.label_tag }} {{ field }} {{ field.errors }}
+  </div>
+  {% endfor %}
 
-      <button type="submit">Send</button>
-    </form>
-  </body>
-</html>
+  <button type="submit">Send</button>
+</form>
+
+{% endblock %}

@@ -15,20 +15,20 @@ class Genre(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
     
 
 
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=10000)
-    author = models.CharField(max_length=3000)
+    title = models.CharField(max_length=225)
+    author = models.CharField(max_length=225)
     pages = models.IntegerField()
     dds = models.FloatField(null=True)
-    slug = models.SlugField(default='',null=False, db_index=True )
+    slug = models.SlugField(default='',null=False, db_index=True,blank=True )
 
-    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, )
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, related_name="books" )
 
     genre = models.ManyToManyField(Genre)
 
@@ -45,17 +45,20 @@ class Book(models.Model):
     
     #one to one
 class BookMetadata(models.Model):
-    book = models.OneToOneField(Book, on_delete=models.CASCADE, null=True)
+    book = models.OneToOneField(Book, on_delete=models.CASCADE, related_name="metadata", null=True)
     isbn = models.CharField(max_length=13)
     publication_date= models.DateField()
     summary = models.TextField()
 
     def __str__(self):
-        return f"Metadata for {self.book.title}"
+        return f"{self.book.title} Metadata"
 
 class Feedback(models.Model):
     username = models.CharField(max_length=50)
     email = models.EmailField()
-    subject = models.CharField(max_length=50)
+    subject = models.CharField(max_length=100)
     message = models.TextField()
     image = models.ImageField(upload_to='feedback_images/', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.username} - {self.subject}"

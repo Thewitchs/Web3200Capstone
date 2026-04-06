@@ -1,12 +1,107 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
 body {
-  background-color: aliceblue;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "IBM Plex Mono", monospace;
+  background-color: #feceda;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-ul {
-  list-style: none;
+/* Navbar */
+nav {
+  background-color: #a41d25;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-family: "Libre Baskerville", serif;
+  color: #4c8ab9;
+  margin-bottom: 15px;
+}
+
+/* Cards (for books + feedback) */
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Images */
 img {
-  height: 100vh;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Form styling */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: "Chivo Mono", monospace;
+}
+
+/* Button */
+button {
+  background-color: #4c8ab9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #616b29;
+}
+
+/* Error styling */
+.errors {
+  color: red;
+  font-size: 0.9rem;
+}
+
+/* Favorite star */
+.favorite {
+  font-size: 20px;
+  color: gold;
 }

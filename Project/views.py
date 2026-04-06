@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from .models import Book
-from .form import ReviewForm
+from .forms import ReviewForm
 from django.views.generic import ListView, DetailView
 from .models import Feedback
 
@@ -18,7 +18,7 @@ def about_view(request):
 
 def index(request):
     books = Book.objects.all().order_by('dds')
-    return render(request, 'home.html', {
+    return render(request, 'project/home.html', {
         'books': books
     })
 
@@ -33,9 +33,11 @@ def book_detail(request, slug):
 def feedback(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
+        
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/submission')
+            return HttpResponseRedirect('/submission/')
+    
     else:
         form = ReviewForm()
 

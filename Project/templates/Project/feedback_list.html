@@ -1,27 +1,26 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>All Reviews</h1>
+{%extends "base.html"%} 
+{% block content %}
 
-    {% for feedback in feedbacks %}
-    <div>
-      <h3>
-        <a href="{% url 'feedback_detail' feedback.id %}">
-          {{ feedback.subject }}
-        </a>
-      </h3>
+<h1>All Reviews</h1>
+{% if feedbacks %}
+{% for feedback in feedbacks %}
 
-      <p>{{ feedback.username }}</p>
+<div class="card">
+  <h3>{{feedback.subject}}</h3>
+  <p>{{feedback.username}}</p>
+  <a href="{% url "feedback_detail" %}">View Details</a>
+</div>
 
-      {% if feedback.image %}
-      <img src="{{ feedback.image.url }}" width="200" />
-      {% endif %}
-    </div>
-    {% endfor %}
-  </body>
-</html>
+{% endfor %}
+
+{% else %}
+<p>Be the first to submit a review!</p>
+
+{% endif %}
+
+
+
+
+
+
+{% endblock content %}

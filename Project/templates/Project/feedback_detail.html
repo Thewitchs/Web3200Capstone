@@ -1,18 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>{{ object.subject }}</h1>
+{%extends "base.html"%} {% block content %}
+<div class="card">
+  <h1>{{feedback.subject}}</h1>
+  <p>By: {{feedback.username}}</p>
+</div>
 
-    <p>{{ object.username }}</p>
-    <p>{{ object.message }}</p>
-
-    {% if object.image %}
-    <img src="{{ object.image.url }}" width="400" />
-    {% endif %}
-  </body>
-</html>
+{% endblock content %}

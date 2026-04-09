@@ -1,19 +1,19 @@
-{%extends "base.html"%} {% load static %} {% block content %}
+{%extends "base.html"%} {% block content %}
 
 <h1>What are you reading</h1>
+{% comment %}
 <img
   src="{% static 'project/image/hero-books.jpg' %}"
   alt="A line of books with their spines facing to the sky"
 />
+{% endcomment %}
 <p>This is the home page for "A Book Site"!</p>
 
+{% comment %} {%for book in books%} {% endcomment %}
 <section class="card">
-  {%for book in books%}
-  <h2><a href="{{book.get_absolute_url}}">{{book.title}}</a></h2>
-  <p>{{book.author}}</p>
+  <h2><a href="{{book.get_absolute_url}}">Title: {{book.title}}</a></h2>
+  <p>By: {{book.author}}</p>
   <p>Pages: {{book.page_num}}</p>
   <p>DDs: {{book.dds}}</p>
-  {%endfor%}
 </section>
-
-{% endblock %}
+{% comment %} {%endfor%} {% endcomment %} {% endblock %}

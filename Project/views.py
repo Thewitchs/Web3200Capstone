@@ -26,7 +26,8 @@ def book_detail(request, slug):
     book = get_object_or_404(Book, slug=slug)
 
     return render(request, 'project/detail.html', {
-        'book': book
+        'book': book.title,
+        'pages': book.pages
     })
 
 

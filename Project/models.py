@@ -27,14 +27,10 @@ class Book(models.Model):
     pages = models.IntegerField()
     dds = models.FloatField(null=True)
     slug = models.SlugField(default='',null=False, db_index=True,blank=True )
-
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, related_name="books" )
-
     genre = models.ManyToManyField(Genre)
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
+
 
     def get_absolute_url(self):
         return reverse('book-detail', args=[self.slug])
@@ -42,6 +38,12 @@ class Book(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+    
+
     
     #one to one
 class BookMetadata(models.Model):

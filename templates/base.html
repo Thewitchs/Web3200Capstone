@@ -4,14 +4,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{%static '/project/css/style.css'%}" />
+    <link rel="stylesheet" href="{%static 'project/css/style.css'%}" />
     <title>{%block title%}{%endblock%}</title>
     {%block css_files%} {%endblock%}
   </head>
   <body>
     <header>
       <nav>
-        <h1><a href="{% url 'home' %}">Site Name</a></h1>
+        <h1><a href="{% url 'home' %}">Your Library</a></h1>
         <a href="{% url 'book-list' %}">My Books</a>
         <a href="{% url 'about' %}">About the Creator</a>
         <a href="{% url 'feedback-list' %}">All Reviews</a>

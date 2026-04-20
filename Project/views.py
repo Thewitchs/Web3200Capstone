@@ -14,7 +14,10 @@ from .models import Feedback
 def landing_page_view(request):
     return render(request, "project/home.html")
 def book_list(request):
-    return render(request, "project/book_list.html")
+    books = Book.objects.all()
+    return render(request, "project/book_list.html", {
+        'books':books
+    })
 
 def about_view(request):
     return render(request, "project/about.html")
@@ -29,8 +32,7 @@ def book_detail(request, slug):
     book = get_object_or_404(Book, slug=slug)
 
     return render(request, 'project/detail.html', {
-        'book': book.title,
-        'pages': book.pages
+        'book': book
     })
 def book_form(request):
     if request.method == 'POST':

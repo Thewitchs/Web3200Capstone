@@ -7,6 +7,7 @@
   <h3>{{ book.title }}</h3>
   <p>Author: {{ book.author }}</p>
   <p>Pages: {{ book.pages }}</p>
+  <a href="{% url 'book-detail' book.slug %}"> View Details </a>
 </div>
 {% endfor %} {% else %}
 <p>No books added yet.</p>

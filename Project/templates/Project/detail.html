@@ -1,11 +1,14 @@
-{%extends "base.html"%}
+{%extends "base.html"%} {%block content%}
 
-<h1>{{ book.title }}</h1>
+<div class="card">
+  <h1>{{ book.title }}</h1>
 
-<p><strong>Author:</strong> {{ book.author }}</p>
-<p><strong>Pages:</strong> {{ book.pages }}</p>
-<p><strong>DDS:</strong> {{ book.dds }}</p>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Pages:</strong> {{ book.pages }}</p>
+  <p><strong>DDS:</strong> {{ book.dds }}</p>
 
-<p>
-  <a href="{% url 'home' %}">Back to list</a>
-</p>
+  <a href="{% url 'book-list' %}">
+    <button>Back to Books</button>
+  </a>
+</div>
+{%endblock%}

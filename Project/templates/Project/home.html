@@ -1,19 +1,30 @@
-{%extends "base.html"%} {% block content %}
+{%extends "base.html"%} {%load static%} {% block content %}
 
 <h1>What are you reading</h1>
-{% comment %}
+<p>Track your favorite books in one simple place.</p>
+
 <img
   src="{% static 'project/image/hero-books.jpg' %}"
   alt="A line of books with their spines facing to the sky"
 />
-{% endcomment %}
-<p>This is the home page for "A Book Site"!</p>
 
-{% comment %} {%for book in books%} {% endcomment %}
-<section class="card">
-  <h2><a href="{{book.get_absolute_url}}">Title: {{book.title}}</a></h2>
-  <p>By: {{book.author}}</p>
-  <p>Pages: {{book.page_num}}</p>
-  <p>DDs: {{book.dds}}</p>
-</section>
-{% comment %} {%endfor%} {% endcomment %} {% endblock %}
+  <div>
+    <a href="{% url 'book-list' %}">
+      <button>Browse Your Books</button>
+    </a>
+
+    <a href="{% url 'book-form' %}">
+      <button>Add a Book</button>
+    </a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Welcome to A Book Site</h2>
+  <p>
+    This platform lets you save your books or leave a review.
+  </p>
+</div>
+
+
+ {% endblock %}

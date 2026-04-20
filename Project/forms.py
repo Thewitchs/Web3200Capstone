@@ -1,7 +1,7 @@
 from django import forms
-from .models import Feedback
+from .models import Feedback, Book
 
-class ReviewForm (forms.Form):
+class ReviewForm (forms.ModelForm):
     image = forms.ImageField()
     class Meta:
         model = Feedback
@@ -12,3 +12,9 @@ class ReviewForm (forms.Form):
             'message': 'Your Feedback', 
             'image': 'Add an Image'
         }
+
+class BookForm (forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = '__all__'
+

@@ -1,14 +1,13 @@
 {%extends "base.html"%} {% block content %}
-<h1>Review Form</h1>
-
-<form method="POST" enctype="multipart/form-data">
+<h1>Add a Book</h1>
+<form action="{% url 'book-form' %}" method="POST">
   {% csrf_token %} {% for field in form %}
   <div class="form-control {% if field.errors %}errors{% endif %}">
     {{ field.label_tag }} {{ field }} {{ field.errors }}
   </div>
   {% endfor %}
 
-  <button type="submit">Send</button>
+  <button type="submit">Save Book</button>
 </form>
 
 {% endblock %}

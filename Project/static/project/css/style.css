@@ -8,29 +8,32 @@
 /* Body */
 body {
   font-family: "IBM Plex Mono", monospace;
-  background-color: #feceda;
-  color: #333;
+  background-color: #f5f7fa;
+  color: #2d3748;
   line-height: 1.6;
   padding: 20px;
 }
 
 /* Navbar */
 nav {
-  background-color: #a41d25;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  background-color: #1f2937;
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 nav a {
-  color: white;
-  margin-right: 15px;
+  color: #f9fafb;
+  margin-right: 20px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #93c5fd;
+  text-decoration: none;
 }
 
 /* Headings */
@@ -38,70 +41,93 @@ h1,
 h2,
 h3 {
   font-family: "Libre Baskerville", serif;
-  color: #4c8ab9;
+  color: #1e3a5f;
   margin-bottom: 15px;
 }
 
 /* Cards (for books + feedback) */
 .card {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
 /* Images */
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
-  margin-top: 10px;
+  border-radius: 12px;
+  margin-top: 12px;
 }
 
 /* Form styling */
 form {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
 .form-control {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
+/* Inputs */
 input,
-textarea {
+textarea,
+select {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
   font-family: "Chivo Mono", monospace;
+  background-color: #ffffff;
+  transition: 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 /* Button */
 button {
-  background-color: #4c8ab9;
+  background-color: #2563eb;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  background-color: #616b29;
+  background-color: #1d4ed8;
+}
+
+/* Links inside cards */
+.card a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card a:hover {
+  text-decoration: underline;
 }
 
 /* Error styling */
 .errors {
-  color: red;
+  color: #dc2626;
   font-size: 0.9rem;
-}
-
-/* Favorite star */
-.favorite {
-  font-size: 20px;
-  color: gold;
+  margin-top: 5px;
 }

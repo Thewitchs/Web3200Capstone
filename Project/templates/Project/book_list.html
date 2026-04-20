@@ -1,0 +1,13 @@
+{%extends "base.html"%} {%block content%}
+<h1>My Book List</h1>
+<a href="{% url 'book-form' %}"><button>Add Book</button></a>
+
+{% if books %} {% for book in books %}
+<div class="card">
+  <h3>{{ book.title }}</h3>
+  <p>Author: {{ book.author }}</p>
+  <p>Pages: {{ book.pages }}</p>
+</div>
+{% endfor %} {% else %}
+<p>No books added yet.</p>
+{% endif %} {%endblock%}

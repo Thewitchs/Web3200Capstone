@@ -26,7 +26,7 @@ class Book(models.Model):
     author = models.CharField(max_length=225)
     pages = models.IntegerField()
     dds = models.FloatField(null=True)
-    slug = models.SlugField(default='',null=False, db_index=True,blank=True )
+    slug = models.SlugField(default='',null=False, db_index=True,blank=True, editable=False )
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, related_name="books" )
     genre = models.ManyToManyField(Genre)
 

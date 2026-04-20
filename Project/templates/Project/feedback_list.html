@@ -1,26 +1,16 @@
-{%extends "base.html"%} 
-{% block content %}
+{%extends "base.html"%} {% block content %}
 
 <h1>All Reviews</h1>
-{% if feedbacks %}
-{% for feedback in feedbacks %}
+<a href="{% url 'app-review' %}"><button>Leave a Review</button></a>
+{% if feedbacks %} {% for feedback in feedbacks %}
 
 <div class="card">
   <h3>{{feedback.subject}}</h3>
   <p>{{feedback.username}}</p>
-  <a href="{% url "feedback_detail" %}">View Details</a>
+  <a href="{% url 'feedback_detail' feedback.pk %}">View Details</a>
 </div>
 
-{% endfor %}
-
-{% else %}
+{% endfor %} {% else %}
 <p>Be the first to submit a review!</p>
 
-{% endif %}
-
-
-
-
-
-
-{% endblock content %}
+{% endif %} {% endblock content %}

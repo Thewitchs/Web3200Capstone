@@ -12,9 +12,9 @@
     <header>
       <nav>
         <h1><a href="{% url 'home' %}">Site Name</a></h1>
+        <a href="{% url 'book-list' %}">My Books</a>
         <a href="{% url 'about' %}">About the Creator</a>
-        <a href="{% url 'feedback-list' %}">Review</a>
-        <a href="{% url 'app-review' %}">Leave Feedback</a>
+        <a href="{% url 'feedback-list' %}">All Reviews</a>
       </nav>
     </header>
     {%block content%} {%endblock%}
